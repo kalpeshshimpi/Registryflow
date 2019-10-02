@@ -1,0 +1,149 @@
+{
+  "header" : {
+    "dataModelVersion" : "2"
+  },
+  "content" : {
+    "comments" : "",
+    "componentType" : "PROCESS_GROUP",
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "groupId" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+        "id" : "dffa87e3-115f-3ac3-a017-297b047cffc9",
+        "name" : "FileWithSHA",
+        "type" : "OUTPUT_PORT"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+      "identifier" : "49e215e9-ac57-3a88-94e1-6b8de3e5f132",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "failure", "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+        "id" : "303d02d4-178d-3238-b978-664d5d078eb3",
+        "name" : "CryptographicHashContent",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+        "id" : "303d02d4-178d-3238-b978-664d5d078eb3",
+        "name" : "CryptographicHashContent",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+      "identifier" : "68f51550-f92d-34fa-b469-fc4cbc2c5b5a",
+      "labelIndex" : 1,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "" ],
+      "source" : {
+        "groupId" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+        "id" : "939db066-3540-3ec9-ae22-32faeba4b6af",
+        "name" : "FileToAddSHA",
+        "type" : "INPUT_PORT"
+      },
+      "zIndex" : 0
+    } ],
+    "controllerServices" : [ ],
+    "funnels" : [ ],
+    "identifier" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+    "inputPorts" : [ {
+      "componentType" : "INPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+      "identifier" : "939db066-3540-3ec9-ae22-32faeba4b6af",
+      "name" : "FileToAddSHA",
+      "position" : {
+        "x" : 450.0000157628548,
+        "y" : 50.99999209023977
+      },
+      "type" : "INPUT_PORT"
+    } ],
+    "labels" : [ ],
+    "name" : "AddSHA",
+    "outputPorts" : [ {
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+      "identifier" : "dffa87e3-115f-3ac3-a017-297b047cffc9",
+      "name" : "FileWithSHA",
+      "position" : {
+        "x" : 450.0000157628548,
+        "y" : 329.99999209023974
+      },
+      "type" : "OUTPUT_PORT"
+    } ],
+    "position" : {
+      "x" : 1372.375157653973,
+      "y" : 388.67654809314575
+    },
+    "processGroups" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ ],
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "1.9.0.3.4.1.1-4"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "0cc6e1c4-87b5-3045-9c01-4d4cde92784a",
+      "identifier" : "303d02d4-178d-3238-b978-664d5d078eb3",
+      "name" : "CryptographicHashContent",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 759.0000157628548,
+        "y" : 118.99999209023977
+      },
+      "properties" : {
+        "hash_algorithm" : "SHA-256",
+        "fail_when_empty" : "false"
+      },
+      "propertyDescriptors" : {
+        "hash_algorithm" : {
+          "displayName" : "Hash Algorithm",
+          "identifiesControllerService" : false,
+          "name" : "hash_algorithm",
+          "sensitive" : false
+        },
+        "fail_when_empty" : {
+          "displayName" : "Fail if the content is empty",
+          "identifiesControllerService" : false,
+          "name" : "fail_when_empty",
+          "sensitive" : false
+        }
+      },
+      "runDurationMillis" : 0,
+      "schedulingPeriod" : "1 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.CryptographicHashContent",
+      "yieldDuration" : "1 sec"
+    } ],
+    "remoteProcessGroups" : [ ],
+    "variables" : { }
+  }
+}
